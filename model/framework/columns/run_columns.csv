@@ -1,1 +1,4 @@
 name,type,direction,description
+ecoli_activity,float,high,Probability of growth inhibition against Escherichia coli at the training assay's 80% inhibition threshold
+abaumannii_activity,float,high,Probability of growth inhibition against Acinetobacter baumannii at the training assay's growth-rate threshold
+saureus_activity,float,high,Probability of growth inhibition against Staphylococcus aureus at a 1 uM MIC threshold

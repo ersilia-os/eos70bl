@@ -2,45 +2,40 @@ Identifier: eos70bl
 Slug: capmolpred
 Status: In progress
 Title: CapMolPred
-Description: Predicts antimicrobial activity from a molecules SMILES against 
-  Escherichia coli, Acinetobacter baumannii, and Staphylococcus aureus. 
-  Embeddings from five pretrained chemical language models (ChemBERTa-2, 
-  Smole-BERT, MolFormer, MoleBERT, MolCLR) are fused via cross-attention and 
-  classified with a capsule network trained with an asymmetric loss to handle 
-  severe class imbalance in growth-inhibition data. Validated via case studies 
-  on newly reported antibiotics and molecular docking, though training data 
-  remain scarce for some pathogens.
+Description: Predicts antimicrobial activity from a molecule's SMILES against
+  Escherichia coli, Acinetobacter baumannii, and Staphylococcus aureus
+  growth-inhibition assays. Embeddings from five pretrained chemical language
+  models (ChemBERTa-2, Smole-BERT, MolFormer, MoleBERT, MolCLR) are fused via
+  cross-attention and classified with a capsule network trained with an
+  asymmetric loss on severely imbalanced data. Ersilia provides a replicated
+  version, retraining the three classifiers from the authors' released data
+  and code and fixing an unseeded fusion layer for reproducible inference.
 Deployment:
   - Local
-  - Online
-Source: Local, Online
-Source Type: Internal, Replicated, External
-Task: Annotation, Representation, Sampling
-Subtask: Property calculation or prediction, Activity prediction, Featurization,
-  Projection, Similarity search, Generation
+Source: Local
+Source Type: Replicated
+Task: Annotation
+Subtask: Activity prediction
 Input:
   - Compound
 Input Dimension: 1
 Output:
-  - Value
   - Score
-  - Compound
-  - Text
-Output Dimension: 1
-Output Consistency: Fixed, Variable
-Interpretation: The output of this template model should be interpreted like 
-  this.
+Output Dimension: 3
+Output Consistency: Fixed
+Interpretation: Probability of growth inhibition against E. coli, A. baumannii,
+  and S. aureus from each species' training assay threshold.
 Tag:
   - Antimicrobial activity
   - Gram-negative bacteria
   - Gram-positive bacteria
 Biomedical Area:
-  - Biomedical Area 1
-  - Biomedical Area 2
+  - Antimicrobial resistance
 Target Organism:
-  - Target Organism 1
-  - Target Organism 2
-Publication Type: Peer reviewed, Preprint, Other
+  - Escherichia coli
+  - Acinetobacter baumannii
+  - Staphylococcus aureus
+Publication Type: Peer reviewed
 Publication Year: 2026
 Publication: https://doi.org/10.1038/s42004-026-02176-3
 Source Code: https://github.com/Roxie2816/capsule-antimicrobial
